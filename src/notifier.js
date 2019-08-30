@@ -6,7 +6,7 @@ const notifyError = message => {
   notifier.notify({
     title: 'Check readiness',
     message: message,
-    icon: path.join(__dirname, 'error.png'),
+    icon: path.join(__dirname, 'icons', 'error.png'),
     wait: true,
     sound: true
   });
@@ -16,7 +16,7 @@ const notifySuccess = message => {
   notifier.notify({
     title: 'Check readiness',
     message: message,
-    icon: path.join(__dirname, 'success.png'),
+    icon: path.join(__dirname, 'icons', 'success.png'),
     wait: true,
     sound: false
   });
