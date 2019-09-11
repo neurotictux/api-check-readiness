@@ -1,8 +1,19 @@
 const secketio = require('socket.io')
 
-module.exports server => {
-  const io = secketio(server)
-  io.on('connection', socket => {
-    console.log('usuário conectado')
-  })
+const sockets = []
+let endpoitsData = null
+
+module.exports = {
+  startSocket: server => {
+    const io = secketio(server)
+    io.on('connection', socket => {
+      sockets.push(socket)
+      if (endpoitsData)
+        socket.emit('receiveData', endpoitsData)
+    })
+  },
+  notifyClients: data => {
+    endpoitsData = data
+    sockets.forEach(p => p.emit('receiveData', data))
+  }
 }
