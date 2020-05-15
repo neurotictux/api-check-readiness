@@ -1,11 +1,6 @@
 const { spawn } = require('child_process')
-spawn('yarn', [''], {
+spawn('yarn', ['start'], {
   stdio: 'inherit',
-  cwd: 'client/react',
-  shell: true
-})
-spawn('npm', ['start'], {
-  stdio: 'inherit',
-  cwd: 'client/react',
+  cwd: 'client',
   shell: true
 })

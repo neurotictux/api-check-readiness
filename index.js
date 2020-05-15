@@ -7,13 +7,12 @@ const { startCheckReadiness } = require('./src/readiness')
 const jsonFile = path.join(__dirname, 'requests.json')
 
 const app = express()
-const callback = data => {
-  notifyClients(data)
-  console.log('notifyClients')
-}
+const callback = data => notifyClients(data)
+
+app.use(express.static('public'))
 
 app.use('/users', (req, res) => res.json([{}, {}]))
 const server = http.createServer(app)
 startSocket(server)
 startCheckReadiness(jsonFile, callback, 30)
-server.listen(3000)
+server.listen(process.env.PORT || 3000)

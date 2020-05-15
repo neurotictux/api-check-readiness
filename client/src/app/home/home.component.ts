@@ -1,5 +1,4 @@
 import { Component } from '@angular/core'
-
 import openSocket from 'socket.io-client'
 
 @Component({
@@ -9,6 +8,7 @@ import openSocket from 'socket.io-client'
 export class HomeComponent {
 
   public requests = []
+  private socket
 
   constructor() {
     this.socket = openSocket()
