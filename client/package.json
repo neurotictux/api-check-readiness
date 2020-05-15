@@ -4,11 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve --proxy-config proxy-config.json",
-    "build": "ng build",
-    "build:ssr": "ng run Angular:server:dev",
-    "test": "ng test",
-    "lint": "ng lint",
-    "e2e": "ng e2e"
+    "build": "ng build --prod --output-path=../public"
   },
   "private": true,
   "dependencies": {
